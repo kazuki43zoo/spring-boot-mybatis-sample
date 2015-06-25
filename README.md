@@ -5,7 +5,6 @@ The verifying application for https://github.com/mybatis/mybatis-3/issues/325.
 ## How to build a projects
 
 ```bash
-git checkout master
 mvn clean package
 ```
 
