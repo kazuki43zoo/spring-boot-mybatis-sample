@@ -24,8 +24,8 @@
     </typeAliases>
 
     <typeHandlers>
-        <package name="sample.infra.mybatis.typehandler" />
-        <!--<typeHandler handler="sample.infra.mybatis.typehandler.DateTimeTypeHandler" />-->
+        <!--<package name="sample.infra.mybatis.typehandler" />-->
+        <typeHandler handler="sample.infra.mybatis.typehandler.DateTimeTypeHandler" />
     </typeHandlers>
 
 </configuration>
