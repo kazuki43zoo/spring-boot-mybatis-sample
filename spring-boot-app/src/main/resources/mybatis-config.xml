@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- See http://mybatis.github.io/mybatis-3/configuration.html#settings -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="aggressiveLazyLoading" value="false" />
+<!--
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+        <setting name="proxyFactory" value="JAVASSIST" />
+        <setting name="localCacheScope" value="STATEMENT" />
+-->
+    </settings>
+
+    <typeAliases>
+        <package name="sample.domain.model" />
+        <package name="sample.domain.repository" />
+        <package name="sample.infra.mybatis.typehandler" />
+    </typeAliases>
+
+    <typeHandlers>
+        <package name="sample.infra.mybatis.typehandler" />
+        <!--<typeHandler handler="sample.infra.mybatis.typehandler.DateTimeTypeHandler" />-->
+    </typeHandlers>
+
+</configuration>
