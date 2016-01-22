@@ -303,7 +303,13 @@ public class SpringBootExecutableJarVFS extends VFS {
     if (!"jar".equals(url.getProtocol()))
       return false;
     String urlStr = url.toExternalForm();
-    return urlStr.indexOf(".jar!/") != urlStr.lastIndexOf(".jar!/");
+    int indexOfWar = urlStr.indexOf(".war!/");
+    int indexOfJar = urlStr.indexOf(".jar!/");
+    if (indexOfWar != -1) { // Executable War
+        return indexOfWar != urlStr.lastIndexOf(".jar!/");
+    } else { // Executable Jar
+        return indexOfJar != urlStr.lastIndexOf(".jar!/");
+    }
   }
 
   /**
