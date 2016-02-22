@@ -7,15 +7,8 @@
     <!-- See http://mybatis.github.io/mybatis-3/configuration.html#settings -->
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true" />
-        <setting name="vfsImpl" value="sample.infra.mybatis.vfs.SpringBootExecutableJarVFS" />
         <setting name="lazyLoadingEnabled" value="true" />
         <setting name="aggressiveLazyLoading" value="false" />
-<!--
-        <setting name="defaultExecutorType" value="REUSE" />
-        <setting name="jdbcTypeForNull" value="NULL" />
-        <setting name="proxyFactory" value="JAVASSIST" />
-        <setting name="localCacheScope" value="STATEMENT" />
--->
     </settings>
 
     <typeAliases>
@@ -26,7 +19,6 @@
 
     <typeHandlers>
         <package name="sample.infra.mybatis.typehandler" />
-        <!--<typeHandler handler="sample.infra.mybatis.typehandler.DateTimeTypeHandler" />-->
     </typeHandlers>
 
 </configuration>

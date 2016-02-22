@@ -1,0 +1,2 @@
+mybatis:
+  config: classpath:mybatis-config.xml

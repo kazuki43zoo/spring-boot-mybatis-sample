@@ -2,15 +2,12 @@ package sample; /**
  * Created by shimizukazuki on 2015/06/26.
  */
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -24,10 +21,8 @@ import sample.domain.repository.TodoRepository;
 import javax.sql.DataSource;
 
 
-@EnableAutoConfiguration
-@Configuration
-@ComponentScan
 @MapperScan("sample.domain.repository")
+@SpringBootApplication
 public class Application {
 
     @RequestMapping("/todos")
@@ -42,25 +37,25 @@ public class Application {
         }
     }
 
-    @Bean
-    SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
-        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-        factoryBean.setDataSource(dataSource);
-        factoryBean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
-        return factoryBean;
-    }
-
-    @Bean
-    EmbeddedDatabaseFactoryBean dataSource() {
-        EmbeddedDatabaseFactoryBean factoryBean = new EmbeddedDatabaseFactoryBean();
-        factoryBean.setDatabaseType(EmbeddedDatabaseType.H2);
-        factoryBean.setDatabaseName("spring-boot-sample");
-        factoryBean.setDatabasePopulator(new ResourceDatabasePopulator(
-                new ClassPathResource("database/schema.sql"),
-                new ClassPathResource("database/dataload.sql")
-        ));
-        return factoryBean;
-    }
+//    @Bean
+//    SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
+//        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+//        factoryBean.setDataSource(dataSource);
+//        factoryBean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
+//        return factoryBean;
+//    }
+//
+//    @Bean
+//    EmbeddedDatabaseFactoryBean dataSource() {
+//        EmbeddedDatabaseFactoryBean factoryBean = new EmbeddedDatabaseFactoryBean();
+//        factoryBean.setDatabaseType(EmbeddedDatabaseType.H2);
+//        factoryBean.setDatabaseName("spring-boot-sample");
+//        factoryBean.setDatabasePopulator(new ResourceDatabasePopulator(
+//                new ClassPathResource("schema.sql"),
+//                new ClassPathResource("data.sql")
+//        ));
+//        return factoryBean;
+//    }
 
     public static void main(String[] arguments) {
         SpringApplication.run(Application.class, arguments);
