@@ -28,3 +28,11 @@ java -jar spring-boot-app/target/spring-boot-app-1.0-SNAPSHOT.jar
 
 `createdAt` is not null. -> apply custom type handler.
 
+## Using MyBatis Spring Boot 1.0.1-SNAPSHOT
+
+* Please checkout `mybatis-spring-boot` branch.
+* build a projects
+* run an application
+* access a sample processing
+
+`createdAt` is not null. -> apply custom type handler.
